@@ -14,11 +14,15 @@ Key maps and remapping that I have in my vimrc, including any plugins used.
 
 ## Plugins
 ### Telescope
+| Key Binding | Description |
+| ----------- | ----------- |
 | _ pf        | Search through current files |
 | _ ps        | Live grep search |
 | <C-p>       | git search |
 
 ### Harpoon
+| Key Binding | Description |
+| ----------- | ----------- |
 | _ a         | mark current file |
 | <C-e\>      | toggle harpoon ui |
 | <C-\[0-9\]\> | jump to marked file(\[0-9\] |
