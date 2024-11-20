@@ -38,7 +38,11 @@ Key maps and remapping that I have in my vimrc, including any plugins used.
 ### Cmp
 | Key Binding | Description |
 | ----------- | ----------- |
-| <C-_\>      | open completion menu |
+| <C-Space\>  | open completion menu |
 | <C-n\>/<C-p\> | next/previous in completion menu |
 | <Tab\>      | Confirm completion choice |
 
+### UndoTree
+| Key Binding | Description |
+| ----------- | ----------- |
+| _ u         | toggle undo tree ui |
