@@ -18,7 +18,7 @@ Key maps and remapping that I have in my vimrc, including any plugins used.
 | ----------- | ----------- |
 | _ pf        | Search through current files |
 | _ ps        | Live grep search |
-| <C-p>       | git search |
+| <C-p\>      | git search |
 
 ### Harpoon
 | Key Binding | Description |
@@ -26,3 +26,19 @@ Key maps and remapping that I have in my vimrc, including any plugins used.
 | _ a         | mark current file |
 | <C-e\>      | toggle harpoon ui |
 | <C-\[0-9\]\> | jump to marked file(\[0-9\] |
+
+### Fugitive
+| Key Binding | Description |
+| ----------- | ----------- |
+| _ gs        | open fugitive |
+| s/u         | stage/unstage |
+| cc          | create commit |
+| P           | push to remote |
+
+### Cmp
+| Key Binding | Description |
+| ----------- | ----------- |
+| <C-_\>      | open completion menu |
+| <C-n\>/<C-p\> | next/previous in completion menu |
+| <Tab\>      | Confirm completion choice |
+
