@@ -1,5 +1,16 @@
 # Movements in Nvim
 
+## Some Basics
+Format for a vim command: Command Count Motion
+| Key Binding | Description |
+| ----------- | ----------- |
+| d           | delete duhh. This goes to current buffer to paste |
+| i/a         | insert/append |
+| v/V         | visual/ visual line mode |
+| o :visual   | jump between outside of your highlight |
+| c           | change selected text |
+| %           | jump between opening and closing |
+
 ## Horizontal movements
 | Key Binding | Description |
 | ----------- | ----------- |
@@ -29,4 +40,21 @@ occurence of a '('.
 A window contains a buffer.
 A buffer is some representation of the file below (kept in memory).
 
-## Advanced Motions
+## Advanced Motions and Stuff
+| Key Binding | Description |
+| ----------- | ----------- |
+| vi*         | visual block withIn block characters inputted |
+| va*         | visual block Around block characters inputted or next occurence |
+| yi* ya*     | yank the visual block defined by vi/va* |
+| viw         | highlight current word |
+| viW         | highlight current text until whitespace |
+| di* ci*     | delete or change inner |
+| =ap         | re-indent entire paragraph |
+
+
+### For practice
+```
+function foo(blaz: {oddly: "long" | "type"}) {
+    // ....
+}
+```
