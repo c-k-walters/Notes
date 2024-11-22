@@ -8,8 +8,8 @@ Every Go program is made up of packages.
 package main
 
 import (
-        "fmt"
-       )
+    "fmt"
+)
 
 func main() {
     fmt.Preintln("Hello World")
@@ -40,8 +40,8 @@ Go's return values may also be named. If so, they are treated as variables.
 ```go
 func split(sum int) (x, y int) {
     x = sum * 4 / 9
-        y = sum - x
-        return
+    y = sum - x
+    return
 }
 ```
 
@@ -69,68 +69,68 @@ const Pi = 3.14
 Variables without an explicit inital value are given a zero value.
 The zero value is:
 - 0 for numeric types,
-    - false for booleans
-    - "" for empty strings
+- false for booleans
+- "" for empty strings
 
-    The expression `T(v)` converts a value `v` to the type `T`.
+The expression `T(v)` converts a value `v` to the type `T`.
 
 ### For
-    Go has only one looping construct, the `for` loop.
-    The basic `for` loop has three components seperated by semicolons:
-    1. init statement
-    2. condition expression
-    3. post statement: executed at end of every iteration
-    ```go
-    for i:= 0; i < 10; i++ { ... }
-    ```
+Go has only one looping construct, the `for` loop.
+The basic `for` loop has three components seperated by semicolons:
+1. init statement
+2. condition expression
+3. post statement: executed at end of every iteration
+```go
+for i:= 0; i < 10; i++ { ... }
+```
 
-    The init and post statements are optional.
-    ```go
-    for ; sum < 1000; { ... }
+The init and post statements are optional.
+```go
+for ; sum < 1000; { ... }
 
-    // or simpler still
-    for sum < 1000 { ... }
-    ```
-    If you omit the loop condition it loops forever.
-    ```go
-    for { ... }
-    ```
+// or simpler still
+for sum < 1000 { ... }
+```
+If you omit the loop condition it loops forever.
+```go
+for { ... }
+```
 
 ### If
-    Go supports basic if statements unwrapped
-    ```go
-    if v < lim { ... }
-    ```
+Go supports basic if statements unwrapped
+```go
+if v < lim { ... }
+```
 
-    Like for loops, if statements can also have a short statement executed before the condition.
-    ```go
-    if v:= 100; v < lim { ... }
-    ```
-    Variables declared by the statement are scoped to the end of the if.
+Like for loops, if statements can also have a short statement executed before the condition.
+```go
+if v:= 100; v < lim { ... }
+```
+Variables declared by the statement are scoped to the end of the if.
 
-    ```go
-    if v:= 100; v < lim { ... }
-    else { ... }
-    ```
+```go
+if v:= 100; v < lim { ... }
+else { ... }
+```
 
 ### Switch
-    ```go
-    switch os := runtime.GOOS; os {
-        case "darwin":
-            // ...
-        case "linux":
-            // ...
-        default:
-            // ...
-    }
+```go
+switch os := runtime.GOOS; os {
+case "darwin":
+    // ...
+case "linux":
+    // ...
+default:
+    // ...
+}
 ```
 
 Switch without a condition is treated like an if-then-else chain.
 ```go
 switch {
-    case t.Hour() < 12:
-        // ...
-        // ..
+case t.Hour() < 12:
+    // ...
+// ..
 }
 ```
 ### Defer
@@ -141,7 +141,7 @@ returns; however, the deferred call's arguments are evaluated immediately.
 func main() {
     defer fmt.Println("world")
 
-        // ...
+    // ...
 }
 ```
 Deferred function calls are pushed onto a stack.
@@ -162,23 +162,23 @@ p = &i // p is a pointer!
 
 The `*` operator denotes the pointer's underlying value.
 Using this operator is known as 'dereferencing` or 'indirecting`.
-    ```go
+```go
 fmt.Println(*p)
-    *p = 21
-    ```
+*p = 21
+```
 
 ### Structs
-    A `struct` is a collection of fields
-    ```go
-    type Vertex struct {
-        X int
-            Y int
-    }
+A `struct` is a collection of fields
+```go
+type Vertex struct {
+    X int
+    Y int
+}
 
 var (
-        v1 = Vertex{1, 2} // has type Vertex
-        p = &Vertex{X: 1} // has type *Vertex, Y:0 is implicit
-    )
+    v1 = Vertex{1, 2} // has type Vertex
+    p = &Vertex{X: 1} // has type *Vertex, Y:0 is implicit
+)
 ```
 
 ### Arrays
@@ -249,53 +249,53 @@ The zero value of a map is nil.
 A nil map has no keys, nor can keys be added.
 The make function returns a map of the given type, initalized.
 ```go
-    var m map[string]int
+var m map[string]int
 m = make(map[string]int)
 
-    m = map[string]int{
-        "foo": 0,
-            "bar": 1,
-    }
+m = map[string]int{
+    "foo": 0,
+    "bar": 1,
+}
 
 var b = map[string]Vertex{
-    "Bell Labs": {40.68433, -74.39967}, // notice that we omit the type name
-        "Google":    {37.42202, -122.08408},
+	"Bell Labs": {40.68433, -74.39967}, // notice that we omit the type name
+	"Google":    {37.42202, -122.08408},
 }
 ```
 
 Insert or update or retrieve or delete an element in map m:
 ```go
 m[key] = elem
-    elem = m[key]
+elem = m[key]
 delete(m, key)
-    ```
+```
 
-    You may also test that a key is present with two-value assignment.
-    `ok` is `true` if `key` is in `m`.
-    ```go
-    elem, ok := m[key]
-    ```
+You may also test that a key is present with two-value assignment.
+`ok` is `true` if `key` is in `m`.
+```go
+elem, ok := m[key]
+```
 
 ### Function values
-    Functions are values too.
-    Function values may be used as function arguments and return values.
-    ```go
-    func compute(fn func(float64, float64) float64) float64 { ... }
-    \\ same synt. as normal func definiton
-    ```
+Functions are values too.
+Function values may be used as function arguments and return values.
+```go
+func compute(fn func(float64, float64) float64) float64 { ... }
+                \\ same synt. as normal func definiton
+```
 
-    Go functions may be closures.
-    A closure is a function value that references variables from outside its body.
-    For example, the `adder` function returns a closure.
-    Each closure is bound to its own `sum` variable.
-    ```go
-    func adder() func(int) int {
-sum := 0
-         return func(x int) int {
-             sum += x
-                 return sum
-         }
+Go functions may be closures.
+A closure is a function value that references variables from outside its body.
+For example, the `adder` function returns a closure.
+Each closure is bound to its own `sum` variable.
+```go
+func adder() func(int) int {
+    sum := 0
+    return func(x int) int {
+        sum += x
+        return sum
     }
+}
 ```
 
 ## Methods and Interfaces
@@ -311,31 +311,31 @@ func (v Vertex) Abs() float64 { ... }
 
 v := Vertex{}
 v.Abs()
-    ```
+```
 
-    You can declare a method on non-struct types too.
-    You can only declare a method with a reciever whose type is defined in the 
-    same package as the method.
-    This includes built-in types like `int`
-    ```go
-    type MyFloat flaot64
+You can declare a method on non-struct types too.
+You can only declare a method with a reciever whose type is defined in the 
+same package as the method.
+This includes built-in types like `int`
+```go
+type MyFloat flaot64
 
-    func (f MyFlaot) Abs() float64 { ... }
-    ```
+func (f MyFlaot) Abs() float64 { ... }
+```
 
-    You can declare methods with pointer receivers.
-    These methods operates on the reciever itself.
-    ```go
-    func (v *Vertex) Scale(f float64) { ... }
-    ```
+You can declare methods with pointer receivers.
+These methods operates on the reciever itself.
+```go
+func (v *Vertex) Scale(f float64) { ... }
+```
 
 ### Interfaces
-    An interface type is defined as a set of method signtitures.
-    A value of interface type can hold any value that implememnts those methods.
-    ```go
-    type I interface {
-        M()
-    }
+An interface type is defined as a set of method signtitures.
+A value of interface type can hold any value that implememnts those methods.
+```go
+type I interface {
+    M()
+}
 
 type T struct {
     S string
@@ -363,18 +363,18 @@ underlying concrete value.
 var i interface{} = "hello"
 
 s, ok := i.(string) // "hello" string, true
-    f, ok := i.(float64) // 0, false
+f, ok := i.(float64) // 0, false
 f = i.(float64) // panic
-    ```
+```
 
 ### Type Switch
-    ```go
-    switch v := i.(type) {
-        case int:
-            // ...
-        default:
-            // ...
-    }
+```go
+switch v := i.(type) {
+case int:
+    // ...
+default:
+    // ...
+}
 ```
 
 ### Stringers
@@ -398,92 +398,92 @@ type error interface {
 The `io` package specifies the io.Reader interface, which represents the read
 end of a stream of data. 
 Here is a sample of the interface.
-    ```go
+```go
 func (T) Read(b []byte) (n int, err error)
-    ```
+```
 
 ## Generics
-    Go functions can be written to work on multiple types using type parameters.
-    ```go
-    func Index[T comparable](s []T, x T) int { ... }
-    ```
+Go functions can be written to work on multiple types using type parameters.
+```go
+func Index[T comparable](s []T, x T) int { ... }
+```
 
-    In addition, Go supports generic types.
-    ```go
-    type List[T any] struct {
-        next *List[T]
-            val T
-    }
+In addition, Go supports generic types.
+```go
+type List[T any] struct {
+    next *List[T]
+    val T
+}
 ```
 
 ## Goroutines
 A `goroutine` is a lightweight thread managed by the Go runtime.
-    ```go
+```go
 go f(x, y, z)
-    ```
+```
 
-    starts a new goroutine running
-    ```go
+starts a new goroutine running
+```go
 f(x, y, z)
-    ```
+```
 
-    The evaluation of `x`, `y`, and `z` happens in the current goroutine and the 
-    execution of `f` happens in the new goroutine.
-    <br><br>
+The evaluation of `x`, `y`, and `z` happens in the current goroutine and the 
+execution of `f` happens in the new goroutine.
+<br><br>
 
-    Goroutines run in the same address sapce, so access to shared memory must be
-    synchronized.
-    The `sync` package provides usefule primitives.
+Goroutines run in the same address sapce, so access to shared memory must be
+synchronized.
+The `sync` package provides usefule primitives.
 
 ### Channels
-    Channels are a typed conduit through which you can send and receive values with
-    the channel operator, `<-`.
+Channels are a typed conduit through which you can send and receive values with
+the channel operator, `<-`.
 
-    ```go
-    ch := make(chan int)
-    ch <- v // sends v to channel ch.
-    v := <-ch // receive from ch
-    ```
+```go
+ch := make(chan int)
+ch <- v // sends v to channel ch.
+v := <-ch // receive from ch
+```
 
-    By default, sends and receives block until the other side is ready.
-    This allows goroutines to synchronize without explicit locks or condition
-    variables.
-    <br><br>
+By default, sends and receives block until the other side is ready.
+This allows goroutines to synchronize without explicit locks or condition
+variables.
+<br><br>
 
-    Channels can be buffered. Sends to a buffered channel block only when the
-    buffer is full. 
-    Recieves block when the buffer is empty.
-    ```go
-    ch := make(chan int, 100)
-    ```
+Channels can be buffered. Sends to a buffered channel block only when the
+buffer is full. 
+Recieves block when the buffer is empty.
+```go
+ch := make(chan int, 100)
+```
 
-    A sender can close a channel to indicate that no more values will be sent.
-    Receivers can test whether a channel has been closed by assigning a second
-    parameter.
-    ```go
+A sender can close a channel to indicate that no more values will be sent.
+Receivers can test whether a channel has been closed by assigning a second
+parameter.
+```go
 close(c)
-    v, ok := <-ch
+v, ok := <-ch
 
-    ```
-    `ok` is false if there are no more values to receive.
-    Sending on a closed channel will cause a panic.
+```
+`ok` is false if there are no more values to receive.
+Sending on a closed channel will cause a panic.
 
-    ```go
-    func fibonacci(n int, c chan int) {
-        x, y := 0, 1
-            for i := 0; i < n; i++ {
-                c <- x
-                    x, y = y, x+y
-            }
-        close(c)
-    }
+```go
+func fibonacci(n int, c chan int) {
+	x, y := 0, 1
+	for i := 0; i < n; i++ {
+		c <- x
+		x, y = y, x+y
+	}
+	close(c)
+}
 
 func main() {
-c := make(chan int, 10)
-       go fibonacci(cap(c), c)
-       for i := range c {
-           fmt.Println(i)
-       }
+    c := make(chan int, 10)
+    go fibonacci(cap(c), c)
+    for i := range c {
+        fmt.Println(i)
+    }
 }
 ```
 
@@ -497,29 +497,29 @@ It chooses one at random if multiple are ready.
 var c, quit chan
 for {
     select {
-        case c <- x:
-            // ...
-        case <-quit:
-            // ...
-        default:
-            // if no channels are ready. prevents blocking
-    }
-    ```
+    case c <- x:
+        // ...
+    case <-quit:
+        // ...
+    default:
+        // if no channels are ready. prevents blocking
+}
+```
 
 ### sync.Mutex
-        `sync.Mutex` has two methods: `Lock` and `Unlock`.
-        ```go
-        import "sync"
+`sync.Mutex` has two methods: `Lock` and `Unlock`.
+```go
+import "sync"
 
-        type SafeCounter struct {
-            mu sync.Mutex
-                v map[string]int
-        }
+type SafeCounter struct {
+    mu sync.Mutex
+    v map[string]int
+}
 
-    func (c *SafeCounter) Inc(key string) {
-        c.mu.Lock()
-            defer c.mu.Unlock()
+func (c *SafeCounter) Inc(key string) {
+    c.mu.Lock()
+    defer c.mu.Unlock()
 
-            c.v[key]++
-    }
-    ```
+    c.v[key]++
+}
+```
